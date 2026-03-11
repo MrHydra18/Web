@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amélie Petit Ferrer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: rgb(191, 14, 179);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .home h1 {
+            color: #333;
+        }
+
+        .mon-avis h1 {
+            color: #667eea;
+        }
+
+        .message h1 {
+            color: #764ba2;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #764ba2;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #633d8a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        .btn-back {
+            padding: 12px 30px;
+            font-size: 16px;
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        p {
+            text-align: left;
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page d'accueil -->
+        <div id="home" class="section active home">
+            <h1>Cadeau pour toi 💖!</h1>
+            <div class="buttons">
+                <button class="btn-primary" onclick="showSection('mon-avis')">Mon Avis</button>
+                <button class="btn-secondary" onclick="showSection('message')">Lis ça si t'en as besoin</button>
+            </div>
+        </div>
+
+        <!-- Section Mon Avis -->
+        <div id="mon-avis" class="section mon-avis">
+            <h1>Mon Avis</h1>
+            <p>
+                Salut, je sais que t'as pas demandé mon avis mais j'avais juste envie de faire ce détail pour que tu te sentes au moins appréciée.
+                Je m'excuse à l'avance si quelque chose de ce que je dis peut être inaproprié ou blessant. <br><br>
+
+                Je connais pas les détails et franchement je veux même pas les connaître. Mais si je sais quelaue chose c'est que tu ne mérites pas avoir à 
+                supporter des connards. Perso t'es une de mes personnes préférées même si on parle presque pas et que je te fais chier à chaque coup en t'écrivant.
+                Bref je sais même pas pourquoi je fais ça juste j'ai eu l'impression que t'étais un peu déprimée (jsp vraiment c juste mon resentit) et dcp je voulais
+                essayer de remonter ta morale. En fait c'est juste que je pense que tu mérites quelqu'un qui t'aime vraiment et non quelqu'un qui joue avec toi.
+                <br><br>
+            
+                Escuse de te refaire lire tout ça et j'espère que sa va aider même si c juste un peu.
+            </p>
+            <button class="btn-primary btn-back" onclick="showSection('home')">Retour</button>
+        </div>
+
+        <!-- Section Message -->
+        <div id="message" class="section message">
+            <h1>Un message pour toi</h1>
+            <p>
+                Juste te dire que t'es beaucoup plus précieuse de ce que tu penses. Ne laisse pas que le gens te marchent desus.
+                Je sais que j'ai aucune autorité pour dire ça mais même si parfois parce que ça arrive à tout le monde, t'as l'impression de 
+                ne pas être suffisante pour une personne/ une carrière ou n'importe qu'elle autre chose sache que les gens qui t'aiment vont être là, 
+                tu peux toujours demander de l'aide ou du soutient, mais ne change pas ta façon d'être pour quelqu'un d'autre si ce ne pas ton avis aussi.
+                Et ce dernier c'est une faveur que je te demande.
+                <br><br>
+                Relie ça quand tu sente que ça va pas. 💜
+            </p>
+            <button class="btn-secondary btn-back" onclick="showSection('home')">Retour</button>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Masquer toutes les sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Afficher la section demandée
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
